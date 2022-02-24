@@ -1,0 +1,49 @@
+<%# 時間は表記しなくてよいので↓日付のみ 時間が必要なら  %H:%M を追記 ("%Y-%m-%d %H:%M")へ%>
+<p>
+  <strong>記録日</strong> 
+  <%= @record.start_time.strftime("%Y-%m-%d") %>
+</p>
+
+<p>
+  <strong>体温</strong>
+  <%= @record.kt %>
+</p>
+
+<p>
+  <strong>脈拍</strong>
+  <%= @record.pulse %>
+</p>
+
+<p>
+  <strong>血圧</strong>
+  <%= @record.systolic %><%="/"%><%= @record.diastolic %>
+</p>
+
+<p>
+  <strong>体重</strong>
+  <%= @record.bw %>
+</p>
+
+<%# 動悸以降はfalse表示になってしまう %>
+<p>
+  <strong>動悸</strong>
+  <%= @record.palpitation %>
+</p>
+
+<p>
+  <strong>息苦しさ</strong>
+  <%= @record.suffocation %>
+</p>
+
+<p>
+  <strong>浮腫</strong>
+  <%= @record.swelling %>
+</p>
+<p>
+  <strong>倦怠感</strong>
+  <%= @record.fatigue %>
+</p>
+
+<%= link_to '編集', edit_record_path(@record) %> 
+<%= link_to '削除', "#" %> 
+<%= link_to '戻る', root_path %>

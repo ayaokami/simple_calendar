@@ -17,9 +17,14 @@ class RecordsController < ApplicationController
     end
   end
 
+  def show
+    @record = Record.find(params[:id])
+  end
+
   def edit
     @record = Record.find(params[:id])
   end
+
 
   private
   def record_params
