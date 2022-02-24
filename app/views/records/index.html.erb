@@ -1,1 +1,15 @@
-<h1> records#index </h1>
+<h1> 記録カレンダー </h1>
+
+<br>
+
+<%= link_to '記録する', '#' %>
+
+<%= month_calendar events: @records do |date, records| %>
+  <%= date.day %>
+
+  <% records.each do |record| %>
+    <div>
+      <%= link_to record.bw, record %>
+    </div>
+  <% end %>
+<% end %>
