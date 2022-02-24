@@ -13,6 +13,7 @@ class RecordsController < ApplicationController
       @record.save
       redirect_to root_path
     else
+      flash.now[:alert] ="記録できませんでした"
       render 'new'
     end
   end
@@ -28,8 +29,9 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     if @record.update(record_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "編集しました"
     else
+      flash.now[:alert] = "編集できませんでした"
       render 'edit'
     end
   end
@@ -37,7 +39,7 @@ class RecordsController < ApplicationController
   def destroy
     @record = Record.find(params[:id])
     @record.destroy
-    redirect_to root_path
+    redirect_to root_path, notice:"削除しました"
   end
 
   private
