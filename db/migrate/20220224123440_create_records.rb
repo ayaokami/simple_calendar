@@ -6,7 +6,7 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.integer  :systolic,    null: false
       t.integer  :diastolic,   null: false
       t.float    :bw,          null: false
-      t.boolean  :palpitation, null: false, default: false
+      t.boolean  :palpitation, null: false, default: false # boolean型はtrueかfalseのみ対応。nullが入っては困るので、最初からdefaultを決めておく
       t.boolean  :suffocation, null: false, default: false
       t.boolean  :swelling,    null: false, default: false
       t.boolean  :fatigue,     null: false, default: false
