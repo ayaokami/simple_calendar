@@ -3,4 +3,8 @@ class RecordsController < ApplicationController
     @records = Record.all
   end
 
+  def new
+    @record = Record.new
+  end
+
 end
