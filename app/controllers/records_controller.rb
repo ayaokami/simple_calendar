@@ -25,6 +25,14 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
+  def update
+    @record = Record.find(params[:id])
+    if @record.update(record_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
 
   private
   def record_params
