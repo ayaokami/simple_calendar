@@ -9,11 +9,11 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
-    if @record.valid?
+    if @record.valid? # && 同じ日付がなければ登録できるif文（unless文）
       @record.save
       redirect_to root_path
     else
-      flash.now[:alert] ="記録できませんでした"
+      flash.now[:alert] ="記録できませんでした" #（1日1回しか記録できません、編集してください）
       render 'new'
     end
   end

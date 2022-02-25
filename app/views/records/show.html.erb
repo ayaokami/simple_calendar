@@ -27,21 +27,37 @@
 <%# 動悸以降はfalse表示になってしまう %>
 <p>
   <strong>動悸</strong>
-  <%= @record.palpitation %>
+  <% if @record.palpitation == true %>
+    <%= "あり" %>
+  <% else %>
+    <%= "なし" %>
+  <% end %>
 </p>
 
 <p>
   <strong>息苦しさ</strong>
-  <%= @record.suffocation %>
+  <% if @record.suffocation == true %>
+    <%= "あり" %>
+  <% else %>
+    <%= "なし" %>
+  <% end %>
 </p>
 
 <p>
   <strong>浮腫</strong>
-  <%= @record.swelling %>
+  <% if @record.swelling == true %>
+    <%= "あり" %>
+  <% else %>
+    <%= "なし" %>
+  <% end %>
 </p>
 <p>
   <strong>倦怠感</strong>
-  <%= @record.fatigue %>
+  <% if @record.fatigue == true %>
+    <%= "あり" %>
+  <% else %>
+    <%= "なし" %>
+  <% end %>
 </p>
 
 <%= link_to '編集', edit_record_path(@record) %> 
